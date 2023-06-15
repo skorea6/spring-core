@@ -21,7 +21,7 @@
 - 의존관계 주입을 사용하면 클라이언트 코드를 변경하지 않고, 클라이언트가 호출하는 대상의 타입 인스턴스 를 변경할 수 있다.
 
 
-### Appconfig Bean 접근 (자바 and 스프링)
+### Spring Container
 * 순수 자바를 통해 AppConfig Bean에 접근
   ```
   AppConfig appConfig = new AppConfig();
