@@ -1,5 +1,6 @@
-# spring-core
-### 스프링 핵심 원리
+# 스프링 핵심 원리
+- 인프런 강의: 스프링 핵심 원리 - 기본편
+https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/dashboard
 
 * Spring Conatiner
 * AppConfig, AutoAppConfig
@@ -11,7 +12,7 @@
 * Singleton (Singleton Pattern, Spring Singleton, Stateless..)
 
 
-### AppConfig / DI
+## DI (AppConfig)
 - AppConfig 처럼 객체를 생성하고 관리하면서 의존관계를 연결해 주는 것을 'DI 컨테이너라' 한다.
 - @Configuration : 안쓰고, @Bean만 사용해도 스프링 빈으로 등록되지만, 싱글톤을 보장하지 않는다. memberRepository() 처럼 의존관계 주입이 필요해서 메서드를 직접 호출할 때 싱글톤을 보장하지 않는다. (한개의 객체만 만들어져야 하는데 여러개의 객체가 만들어짐)
 - 그러므로 @Configuration 을 붙여준다.
@@ -21,7 +22,7 @@
 - 의존관계 주입을 사용하면 클라이언트 코드를 변경하지 않고, 클라이언트가 호출하는 대상의 타입 인스턴스 를 변경할 수 있다.
 
 
-### Spring Container
+## Spring Container
 * 순수 자바를 통해 AppConfig Bean에 접근
   ```
   AppConfig appConfig = new AppConfig();
@@ -50,7 +51,7 @@
     - 부가기능이 포함된 ApplicationContext 를 사용한다. BeanFactory 나 ApplicationContext 를 스프링 컨테이너라 한다.
 
 
-## AutoAppConfig / Component Scan
+## Component Scan (AutoAppConfig)
 - 스프링은 설정 정보가 없어도 '자동으로 스프링 빈을 등록'하는 '컴포넌트 스캔'이라는 기능을 제공한다.
 - 또 의존관계도 자동으로 주입하는 @Autowired 라는 기능도 제공한다.
 - 컴포넌트 스캔은 이름 그대로 @Component 애노테이션이 붙은 클래스를 스캔해서 '스프링 빈'으로 등록한다. 스프링 빈을 등록하고 싶은 class 에 @Component 를 붙여주자.
@@ -155,5 +156,3 @@
     
 
 
-인프런 강의: 스프링 핵심 원리 - 기본편
-https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/dashboard
