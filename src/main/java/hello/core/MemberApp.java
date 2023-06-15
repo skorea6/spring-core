@@ -19,7 +19,7 @@ public class MemberApp {
 
         // 2. Bean 을 통해 직접적으로 접근하는 방법 (자바 스프링 방법)
 
-        // ApplicationContext -> '스프링 컨테이너' (인터페이스)라 함. BeanFactory 기능을 상속받음.
+//         ApplicationContext -> '스프링 컨테이너' (인터페이스)라 함. BeanFactory 기능을 상속받음.
 //        * 메시지소스를 활용한 국제화 기능
 //        ex: 한국에서 들어오면 한국어로, 영어권에서 들어오면 영어로 출력
 //        * 환경변수
