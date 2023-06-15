@@ -8,8 +8,8 @@ https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%
 * ComponentScan (@Component, @Controller, @Service, @Repository, @Configuration)
 * DI (@Autowired)
 * Lombok (@RequiredArgsConstructor)
-* Scope
 * Singleton (Singleton Pattern, Spring Singleton, Stateless..)
+* Scope
 
 
 ## DI (AppConfig)
@@ -154,5 +154,15 @@ https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%
   }
   ```
     
-
+## Scope
+* Singleton
+  - 기본 스코프, 스프링 컨테이너의 시작과 종료까지 유지되는 '가장 넓은 범위'의 스코프
+  - 항상 '같은 인스턴스'의 스프링 빈을 반환
+  - 스프링 컨테이너 생성 시점에 '초기화 메서드'가 실행
+* Prototype
+  - 스프링 컨테이너는 프로토타입 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 '매우 짧은 범위'의 스코프
+  - 항상 '새로운 인스턴스'를 생성해서 반환
+  - 스프링 컨테이너는 프로토타입 빈을 생성하고, 의존관계 주입, 초기화까지만 처리
+  - 프로토타입 빈은 프로토타입 빈을 조회한 '클라이언트가 관리'해야 한다. 종료 메서드에 대한 호출도 클라이언트가 직접 해야한다.
+  - 스프링 컨테이너에서 빈을 조회할 때 생성되고, 초기화 메서드도 실행
 
