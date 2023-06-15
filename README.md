@@ -5,21 +5,11 @@ https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%
 * Spring Conatiner
 * AppConfig, AutoAppConfig
 * Bean (Bean Factory, Bean Repository, BeanDefinition ..)
-* ComponentScan (@Component, @Controller, @Service, @Repository, @Configuration)
 * DI (@Autowired)
+* ComponentScan (@Component, @Controller, @Service, @Repository, @Configuration)
 * Lombok (@RequiredArgsConstructor)
 * Singleton (Singleton Pattern, Spring Singleton, Stateless..)
 * Scope
-
-
-## DI (AppConfig)
-- AppConfig 처럼 객체를 생성하고 관리하면서 의존관계를 연결해 주는 것을 'DI 컨테이너라' 한다.
-- @Configuration : 안쓰고, @Bean만 사용해도 스프링 빈으로 등록되지만, 싱글톤을 보장하지 않는다. memberRepository() 처럼 의존관계 주입이 필요해서 메서드를 직접 호출할 때 싱글톤을 보장하지 않는다. (한개의 객체만 만들어져야 하는데 여러개의 객체가 만들어짐)
-- 그러므로 @Configuration 을 붙여준다.
-
-
-- 클라이언트인 memberServiceImpl 입장에서 보면 의존관계를 마치 외부에서 주입해주는 것 같다고 해서 'DI'(Dependency Injection) 우리말로 '의존관계 주입' 또는 '의존성 주입'이라 한다.
-- 의존관계 주입을 사용하면 클라이언트 코드를 변경하지 않고, 클라이언트가 호출하는 대상의 타입 인스턴스 를 변경할 수 있다.
 
 
 ## Spring Container
@@ -49,6 +39,16 @@ https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%
   - Bean Factory (스프링 컨테이너의 최상위 인터페이스) -> 스프링 빈을 관리하고 조회
     - BeanFactory 를 직접 사용할 일은 거의 없다.
     - 부가기능이 포함된 ApplicationContext 를 사용한다. BeanFactory 나 ApplicationContext 를 스프링 컨테이너라 한다.
+
+
+## DI (AppConfig)
+* AppConfig 처럼 객체를 생성하고 관리하면서 의존관계를 연결해 주는 것을 'DI 컨테이너라' 한다.
+  - @Configuration을 안쓰고, @Bean만 사용해도 스프링 빈으로 등록되지만, 싱글톤을 보장하지 않는다.
+  - memberRepository() 처럼 의존관계 주입이 필요해서 메서드를 직접 호출할 때 싱글톤을 보장하지 않는다. (한개의 객체만 만들어져야 하는데 여러개의 객체가 만들어짐)
+  - 그러므로 @Configuration 을 꼭 붙여준다!
+
+* 클라이언트인 memberServiceImpl 입장에서 보면 의존관계를 마치 외부에서 주입해주는 것 같다고 해서 'DI'(Dependency Injection) 우리말로 '의존관계 주입' 또는 '의존성 주입'이라 한다.
+  - 의존관계 주입을 사용하면 클라이언트 코드를 변경하지 않고, 클라이언트가 호출하는 대상의 타입 인스턴스 를 변경할 수 있다.
 
 
 ## Component Scan (AutoAppConfig)
