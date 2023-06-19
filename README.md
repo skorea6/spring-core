@@ -13,12 +13,12 @@
 
 ## Spring Container
 * 순수 자바를 통해 AppConfig Bean에 접근
-  ```
+  ```java
   AppConfig appConfig = new AppConfig();
   MemberService memberService = appConfig.memberService();
   ```
 * 자바 스프링을 통해 Appconfig Bean에 접근
-  ```
+  ```java
   ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
   MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
   ```
@@ -66,7 +66,7 @@
 - @Autowired 는 '의존관계를 자동으로 주입'해준다. 생성자에 @Autowired 를 지정하면, 스프링 컨테이너가 '자동으로 해당 스프링 빈을 찾아서' 주입한다!
 - 기본 조회 전략은 '타입이 같은 빈'을 찾아서 주입한다.
 * [DI 위반 예시]
-  ```
+  ```java
   private final MemberRepository memberRepository = new MemoryMemberRepository();
   ```
   - 서비스계층의 클라이언트는 어떤 repository 를 받는지 모른 상태에서 작업한다.
@@ -112,17 +112,17 @@
     - 클래스의 인스턴스가 딱 1개만 생성되는 것을 보장하는 디자인 패턴
     - private 생성자를 사용해서 외부에서 임의로 new 키워드를 사용하지 못하도록 막아야 한다 (객체 인스턴스 2개 이상 생성 방지)
      1. static 영역에 객체를 딱 1개만 생성해둔다.
-      ```
+      ```java
       private static final SingletonService instance = new SingletonService();
       ```
      2. public 으로 열어서 객체 인스터스가 필요하면 이 static 메서드를 통해서만 조회하도록 허용한다. (항상 같은 Instance 반환!)
-      ```
+      ```java
       public static SingletonService getInstance(){
           return instance;
       }
       ```
      3. 생성자를 private 으로 선언해서 외부에서 new 키워드를 사용한 객체 생성을 못하게 막는다
-      ```
+      ```java
       private SingletonService(){ }
       ```
     * [싱글톤 패턴 문제점]
@@ -143,10 +143,10 @@
      * '무상태(stateless)'로 설계해야 한다!
        - 의존적인 필드나 클라이언트가 변경할 수 있는 코드가 있으면 안됨! (공유값 설정X)
        - 가급적 읽기만.
-  ```
+  ```java
   private int price;  // 상태를 유지하는 필드 (공유 되는 필드)
   ```
-  ```
+  ```java
   public void order(String name, int price) {
       System.out.println("name = " + name + "price = " + price);
       this.price = price; // 여기가 문제! => 상태를 변경하면 안됨!!!
